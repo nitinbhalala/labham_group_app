@@ -31,6 +31,7 @@ class _AccountPageState extends State<AccountPage> {
   String? mobileNo;
   String? avatar;
   bool? isLogin;
+  String? privacy;
 
   Functions function = Functions();
   _getData() async {
@@ -41,6 +42,7 @@ class _AccountPageState extends State<AccountPage> {
       mobileNo = prefs.getString('phone').toString();
       avatar = prefs.getString('avatar').toString();
       isLogin = prefs.getBool('status');
+      privacy = prefs.getString('privacy_policy_url');
     });
   }
 
@@ -200,7 +202,7 @@ class _AccountPageState extends State<AccountPage> {
                             )),
                         AccountListTile(
                             onTap: () {
-                             
+                              function.launchPrivacy(privacy.toString());
                             },
                             title: '${lang?.getTranslatedValue('Privacy Policy')}',
                             leading: const Icon(

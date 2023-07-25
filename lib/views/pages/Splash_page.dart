@@ -35,13 +35,14 @@ class _SplashPageState extends State<SplashPage> {
     final data = await apiServices.getTermsAndCondition();
     print(data['data']['privacy_policy_url']);
     prefs.setString('privacy_policy_url', data['data']['privacy_policy_url']);
+    print("GET DATA PRIVACY POLICY:- ${data['data']}");
     return data['data'];
   }
 
   @override
   void initState() {
     _getData();
-//  getData();
+ getData();
     Future.delayed(const Duration(seconds: 3), () {
       (isLogin == true)
           ? Navigator.pushReplacement(

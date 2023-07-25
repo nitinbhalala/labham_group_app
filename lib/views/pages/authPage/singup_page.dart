@@ -6,8 +6,10 @@ import 'package:flutter_bloc/flutter_bloc.dart';
 import 'package:fluttertoast/fluttertoast.dart';
 import 'package:minimall_store/businessLogic/blocs/register/register_state.dart';
 import 'package:minimall_store/services/api_services.dart';
+import 'package:minimall_store/views/comman/function.dart';
 import 'package:minimall_store/views/pages/authPage/login_page.dart';
 import 'package:minimall_store/views/pages/terms_and_condition.dart';
+import 'package:shared_preferences/shared_preferences.dart';
 import 'package:sizer/sizer.dart';
 import '../../../Localization/app_localization.dart';
 import '../../../businessLogic/blocs/register/register_cubit.dart';
@@ -35,6 +37,16 @@ class _SingUpPageState extends State<SingUpPage> {
   void _obscureTextChnage() {
     setState(() {
       _obscureText = !_obscureText;
+    });
+  }
+
+  String? privacy;
+
+  Functions function = Functions();
+  _getData() async {
+    final SharedPreferences prefs = await SharedPreferences.getInstance();
+    setState(() {
+      privacy = prefs.getString('privacy_policy_url');
     });
   }
 
@@ -99,6 +111,7 @@ class _SingUpPageState extends State<SingUpPage> {
 
   @override
   void initState() {
+    _getData();
     getinternet();
     super.initState();
   }
@@ -330,38 +343,7 @@ class _SingUpPageState extends State<SingUpPage> {
                                   ),
                                   GestureDetector(
                                     onTap: () {
-                                      Navigator.push(
-                                          context,
-                                          MaterialPageRoute(
-                                            builder: (context) =>
-                                                const TermsAndCondition(),
-                                          ));
-                                    },
-                                    child: appText(
-                                      title: lang?.getTranslatedValue(
-                                          'Terms of Service'),
-                                      fontSize: 1.6.h,
-                                      color: AppColors.PRIMERY_COLOR,
-                                    ),
-                                  ),
-                                ],
-                              ),
-                              Row(
-                                mainAxisAlignment: MainAxisAlignment.center,
-                                children: [
-                                  appText(
-                                    title: lang?.getTranslatedValue('and'),
-                                    fontSize: 1.6.h,
-                                    color: AppColors.GREY,
-                                  ),
-                                  GestureDetector(
-                                    onTap: () {
-                                      Navigator.push(
-                                          context,
-                                          MaterialPageRoute(
-                                            builder: (context) =>
-                                                const TermsAndCondition(),
-                                          ));
+                                      function.launchPrivacy(privacy.toString());
                                     },
                                     child: appText(
                                       title: lang?.getTranslatedValue(
@@ -372,6 +354,7 @@ class _SingUpPageState extends State<SingUpPage> {
                                   ),
                                 ],
                               ),
+
                             ],
                           ),
                           SizedBox(

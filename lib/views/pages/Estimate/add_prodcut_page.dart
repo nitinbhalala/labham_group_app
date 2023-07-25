@@ -304,7 +304,7 @@ class _AddProductPageState extends State<AddProductPage> {
                                               ),
                                               appText(
                                                   title: productTodo['height']
-                                                      .toString()),
+                                                      .toStringAsFixed(2)),
                                             ],
                                           ),
                                         ),
@@ -338,7 +338,7 @@ class _AddProductPageState extends State<AddProductPage> {
                                               ),
                                               appText(
                                                   title: productTodo['widht']
-                                                      .toString()),
+                                                      .toStringAsFixed(2)),
                                             ],
                                           ),
                                         ),
@@ -376,7 +376,7 @@ class _AddProductPageState extends State<AddProductPage> {
                                               ),
                                               appText(
                                                   title: productTodo['inch']
-                                                      .toString()),
+                                                      .toStringAsFixed(2)),
                                             ],
                                           ),
                                         ),
@@ -410,7 +410,7 @@ class _AddProductPageState extends State<AddProductPage> {
                                               ),
                                               appText(
                                                   title: productTodo['sqft']
-                                                      .toString()),
+                                                      .toStringAsFixed(2)),
                                             ],
                                           ),
                                         ),
@@ -433,7 +433,7 @@ class _AddProductPageState extends State<AddProductPage> {
                                   ),
                                   child: Center(
                                     child: appText(
-                                        title: '₹${productTodo['price'].toString()}',
+                                        title: '₹${productTodo['price'].toStringAsFixed(2)}',
                                         color: AppColors.FONT_COLOR),
                                   ),
                                 ),
@@ -452,7 +452,7 @@ class _AddProductPageState extends State<AddProductPage> {
                                   child: Center(
                                     child: appText(
                                         title:
-                                            '${lang?.getTranslatedValue('Total')}: ₹${productTodo['total_price'].toString()}',
+                                            '${lang?.getTranslatedValue('Total')}: ₹${productTodo['total_price'].toStringAsFixed(2)}',
                                         color: AppColors.WHITE_COLOR),
                                   ),
                                 ),
@@ -565,7 +565,7 @@ class _AddProductPageState extends State<AddProductPage> {
                                               ),
                                               appText(
                                                   title: shortProductList['qty']
-                                                      .toString()),
+                                                      .toStringAsFixed(2)),
                                             ],
                                           ),
                                         ),
@@ -599,7 +599,7 @@ class _AddProductPageState extends State<AddProductPage> {
                                               ),
                                               appText(
                                                   title: '₹${shortProductList['price']
-                                                      .toString()}'),
+                                                      .toStringAsFixed(2)}'),
                                             ],
                                           ),
                                         ),
@@ -622,7 +622,7 @@ class _AddProductPageState extends State<AddProductPage> {
                                   child: Center(
                                     child: appText(
                                         title: '${lang?.getTranslatedValue('Total')}: ₹${shortProductList['total_price']
-                                            .toString()}',
+                                            .toStringAsFixed(2)}',
                                         color: AppColors.WHITE_COLOR),
                                   ),
                                 ),
@@ -653,7 +653,7 @@ class _AddProductPageState extends State<AddProductPage> {
                                   appText(
                                     title: lang?.getTranslatedValue('Price:'),
                                   ),
-                                  appText(title:' ₹${ listTotalPrice.toString()}'),
+                                  appText(title:' ₹${ listTotalPrice.toStringAsFixed(2)}'),
                                 ],
                               ),
                             ),
@@ -686,7 +686,7 @@ class _AddProductPageState extends State<AddProductPage> {
                                       ),
                                       appText(
                                           title: totalProductTodoeInchUnitSum
-                                              .toString()),
+                                              .toStringAsFixed(2)),
                                     ],
                                   ),
                                 ),
@@ -715,7 +715,7 @@ class _AddProductPageState extends State<AddProductPage> {
                                       ),
                                       appText(
                                           title: totalProductTodoeSqftUnitSum
-                                              .toString()),
+                                              .toStringAsFixed(2)),
                                     ],
                                   ),
                                 ),
@@ -833,10 +833,14 @@ class _AddProductPageState extends State<AddProductPage> {
             builder: (context, setState) {
               // if (unitType == MeasurementType.sqft) {
 
-              setState(() {
-                sqftUnit = height * width;
-                inchUnit = height * width * 144;
+              setState((){
+                inchUnit = height * width;
+                sqftUnit = inchUnit / 144;
               });
+              // setState(() {
+              //   sqftUnit = height * width;
+              //   inchUnit = height * width / 144;
+              // });
               // } else {
               //   setState(() {
               //     sqftUnit = height * width / 144;
@@ -1192,7 +1196,6 @@ class _AddProductPageState extends State<AddProductPage> {
               setState(() {
                 shortTotalPrice = qty * shortPrice;
               });
-
               return SingleChildScrollView(
                 child: Form(
                     key: _formKey,
@@ -1335,6 +1338,7 @@ class _AddProductPageState extends State<AddProductPage> {
                                   setState(() {
                                     _addShortTodo();
                                     Navigator.pop(context);
+                                    print("SHORTTOTAL:- $shortTotalPrice");
                                     shortTitleController.clear();
                                     shortPriceController.clear();
                                     qtyController.clear();
