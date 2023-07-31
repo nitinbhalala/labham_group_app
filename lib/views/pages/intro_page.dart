@@ -30,25 +30,15 @@ class IntroPage extends StatelessWidget {
             child: Column(
               mainAxisAlignment: MainAxisAlignment.end,
               children: [
-                // Image.asset(
-                //   AppAssets.LABHAM_LOGO,
-                //   height: 8.h,
-                // ),
+               
                 appText(
                     title: lang?.getTranslatedValue('Welcome To Labham Group'),
                     color: AppColors.WHITE_COLOR,
                     textAlign: TextAlign.center,
                     maxLines: 2,
-                    fontSize: 4.3.h,
+                    fontSize: 4.h,
                     fontWeight: FontWeight.w600),
-                // SizedBox(
-                //   height: 1.h,
-                // ),
-                // appText(
-                //     title: lang?.getTranslatedValue(
-                //         'Ger your groceries in as fast as one hour'),
-                //     color: AppColors.OFFWHITE_COLOR,
-                //     fontSize: 2.h),
+              
                 SizedBox(
                   height: 3.h,
                 ),

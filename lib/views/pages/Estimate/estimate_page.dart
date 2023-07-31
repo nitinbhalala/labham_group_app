@@ -2,7 +2,7 @@
 
 import 'package:flutter/material.dart';
 import 'package:flutter_bloc/flutter_bloc.dart';
-import 'package:minimall_store/businessLogic/blocs/Estimate%20List/estimate_list_sate.dart';
+import 'package:minimall_store/Cubit/Estimate%20List/estimate_list_sate.dart';
 import 'package:minimall_store/constants/app_assets.dart';
 import 'package:minimall_store/constants/app_colors.dart';
 import 'package:minimall_store/services/api_services.dart';
@@ -12,10 +12,11 @@ import 'package:minimall_store/views/comman/connectivity_check.dart';
 import 'package:minimall_store/views/comman/function.dart';
 import 'package:minimall_store/views/comman/no_found.dart';
 import 'package:minimall_store/views/pages/Estimate/create_estimate.dart';
+import 'package:minimall_store/views/pages/Estimate/edit_page.dart';
 import 'package:minimall_store/views/pages/Estimate/view_product_page.dart';
 import 'package:sizer/sizer.dart';
 import '../../../Localization/app_localization.dart';
-import '../../../businessLogic/blocs/Estimate List/estimate_list_bloc.dart';
+import '../../../Cubit/Estimate List/estimate_list_bloc.dart';
 import '../../../constants/app_fonts.dart';
 import '../../comman/app_dialogs.dart';
 import '../../comman/loader.dart';
@@ -29,18 +30,6 @@ class EstimatePage extends StatefulWidget {
 
 class _ExplorePageState extends State<EstimatePage> {
   bool? isConnected;
-  //====From Date =======
-
-  DateTime? pickedDate;
-  DateTime? selectdDate;
-  String? formattedDate;
-
-  //====To  Date =======
-
-  DateTime? pickedToDate;
-  DateTime? selectdToDate;
-  String? formattedToDate;
-
   Functions functions = Functions();
 
   getinternet() async {
@@ -297,6 +286,38 @@ class _ExplorePageState extends State<EstimatePage> {
                                                           child: Center(
                                                             child: Icon(
                                                               Icons.delete,
+                                                              size: 3.h,
+                                                              color: AppColors
+                                                                  .WHITE_COLOR,
+                                                            ),
+                                                          ),
+                                                        ),
+                                                      ),
+                                                      SizedBox(
+                                                        width: 2.w,
+                                                      ),
+                                                      GestureDetector(
+                                                        onTap: () async {
+                                                          Navigator.push(
+                                                              context,
+                                                              MaterialPageRoute(
+                                                                builder: (context) => EditScreen(estimateDetail: state
+                                                                    .estimate[index]),
+                                                              ));
+                                                        },
+                                                        child: Container(
+                                                          height: 5.h,
+                                                          width: 5.h,
+                                                          decoration: BoxDecoration(
+                                                              color: AppColors
+                                                                  .PRIMERY_COLOR,
+                                                              borderRadius:
+                                                              BorderRadius
+                                                                  .circular(
+                                                                  5.h)),
+                                                          child: Center(
+                                                            child: Icon(
+                                                              Icons.edit,
                                                               size: 3.h,
                                                               color: AppColors
                                                                   .WHITE_COLOR,

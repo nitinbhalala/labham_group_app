@@ -44,7 +44,7 @@ launchWhatsapp(String contact,String link) async {
 
 launchPrivacy(String privacyData) async {
   String url = privacyData;
-  print("LAUNCH PRIVACY :- $url");
+  
   if (await launch(url)) {
     await launch(url);
   } else {

@@ -2,8 +2,8 @@
 import 'package:flutter/material.dart';
 import 'package:flutter/services.dart';
 import 'package:flutter_bloc/flutter_bloc.dart';
-import 'package:minimall_store/businessLogic/blocs/login/login_cubit.dart';
-import 'package:minimall_store/businessLogic/blocs/login/login_state.dart';
+import 'package:minimall_store/Cubit/login/login_cubit.dart';
+import 'package:minimall_store/Cubit/login/login_state.dart';
 import 'package:minimall_store/constants/app_assets.dart';
 import 'package:minimall_store/constants/app_colors.dart';
 import 'package:minimall_store/constants/constants.dart';
@@ -52,15 +52,6 @@ class _MyWidgetState extends State<LoginPage> {
     });
   }
 
-  void openForgotPassLink() async {
-    const url = Constants.ForgotPassword;
-    if (await canLaunch(url)) {
-      await launch(url);
-      //  Navigator.pop(context);
-    } else {
-      throw 'Could not launch $url';
-    }
-  }
 
   TextEditingController mobileEditingController = TextEditingController();
   TextEditingController passowrdEditingController = TextEditingController();
@@ -230,7 +221,7 @@ class _MyWidgetState extends State<LoginPage> {
                                 alignment: Alignment.centerRight,
                                 child: GestureDetector(
                                   onTap: () {
-                                    openForgotPassLink();
+                                   
                                   },
                                   child: appText(
                                       title: lang?.getTranslatedValue(

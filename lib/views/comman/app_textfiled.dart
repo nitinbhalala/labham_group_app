@@ -59,19 +59,19 @@ Widget appTextfild(
      
       isDense: isdense,
       enabledBorder: OutlineInputBorder(
-        borderRadius:  BorderRadius.circular(borderRadius ??4),
+        borderRadius:  BorderRadius.circular(borderRadius ??  3.w),
         borderSide: const BorderSide(width: 0.3, color: AppColors.GREY),
       ),
       focusedBorder: OutlineInputBorder(
-        borderRadius: BorderRadius.circular(borderRadius ??4),
+        borderRadius: BorderRadius.circular(borderRadius ??3.w),
         borderSide: const BorderSide(width: 0.3, color: AppColors.GREY),
       ),
       focusedErrorBorder: OutlineInputBorder(
-        borderRadius: BorderRadius.circular(borderRadius ??4),
+        borderRadius: BorderRadius.circular(borderRadius ??3.w),
         borderSide: const BorderSide(width: 0.3, color: AppColors.RED_COLOR),
       ),
       errorBorder: OutlineInputBorder(
-        borderRadius: BorderRadius.circular(borderRadius ??4),
+        borderRadius: BorderRadius.circular(borderRadius ??3.w),
         borderSide: const BorderSide(width: 0.3, color: AppColors.RED_COLOR),
       ),
       suffixIcon: suffixIcon,

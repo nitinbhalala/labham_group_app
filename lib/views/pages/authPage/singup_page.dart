@@ -4,15 +4,14 @@ import 'package:flutter/material.dart';
 import 'package:flutter/services.dart';
 import 'package:flutter_bloc/flutter_bloc.dart';
 import 'package:fluttertoast/fluttertoast.dart';
-import 'package:minimall_store/businessLogic/blocs/register/register_state.dart';
+import 'package:minimall_store/Cubit/register/register_state.dart';
 import 'package:minimall_store/services/api_services.dart';
 import 'package:minimall_store/views/comman/function.dart';
 import 'package:minimall_store/views/pages/authPage/login_page.dart';
-import 'package:minimall_store/views/pages/terms_and_condition.dart';
 import 'package:shared_preferences/shared_preferences.dart';
 import 'package:sizer/sizer.dart';
 import '../../../Localization/app_localization.dart';
-import '../../../businessLogic/blocs/register/register_cubit.dart';
+import '../../../Cubit/register/register_cubit.dart';
 import '../../../constants/app_assets.dart';
 import '../../../constants/app_colors.dart';
 import '../../comman/app_button.dart';
@@ -391,7 +390,7 @@ class _SingUpPageState extends State<SingUpPage> {
                                       return;
                                     }
                                   }
-                                  // Navigator.pushReplacement(context, MaterialPageRoute(builder: (context) => const LoginPage(),));
+                                  
                                 },
                                 child: Center(
                                     child: (!state.isLoading)

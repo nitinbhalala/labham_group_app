@@ -157,19 +157,7 @@ class _AccountPageState extends State<AccountPage> {
                               Icons.portrait_rounded,
                               color: AppColors.PRIMERY_COLOR,
                             )),
-                        // AccountListTile(
-                        //     onTap: () {
-                        //       Navigator.push(
-                        //           context,
-                        //           MaterialPageRoute(
-                        //             builder: (context) => const DeliveryAddressPage(),
-                        //           ));
-                        //     },
-                        //     title: '${lang?.getTranslatedValue('Delivery Address')}',
-                        //     leading: const Icon(
-                        //       Icons.location_on,
-                        //       color: AppColors.FONT_COLOR,
-                        //     )),
+                       
                         AccountListTile(
                             onTap: () {
                               Navigator.push(
@@ -252,7 +240,7 @@ class _AccountPageState extends State<AccountPage> {
                             bool isConfrimed = await AppDialog.showDialog(context,
                                 title: '${lang?.getTranslatedValue('Logout')}',
                                 message:
-                                    '${lang?.getTranslatedValue('Are you sure to logout MiniMall?')}');
+                                    '${lang?.getTranslatedValue('Are you sure to logout Labham Group?')}');
                             if (isConfrimed) {
                               final SharedPreferences prefs =
                                   await SharedPreferences.getInstance();

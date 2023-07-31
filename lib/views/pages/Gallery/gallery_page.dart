@@ -3,7 +3,7 @@
 import 'package:cached_network_image/cached_network_image.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter_bloc/flutter_bloc.dart';
-import 'package:minimall_store/businessLogic/blocs/GalleryList/gallery_list_state.dart';
+import 'package:minimall_store/Cubit/GalleryList/gallery_list_state.dart';
 import 'package:minimall_store/services/api_services.dart';
 import 'package:minimall_store/views/comman/loader.dart';
 import 'package:minimall_store/views/comman/no_found.dart';
@@ -11,7 +11,7 @@ import 'package:minimall_store/views/comman/shimmer_loader.dart';
 import 'package:minimall_store/views/pages/Gallery/view_image.dart';
 import 'package:sizer/sizer.dart';
 import '../../../Localization/app_localization.dart';
-import '../../../businessLogic/blocs/GalleryList/gellary_list_cubit.dart';
+import '../../../Cubit/GalleryList/gellary_list_cubit.dart';
 import '../../../constants/app_colors.dart';
 import '../../../constants/app_fonts.dart';
 import '../../comman/app_text.dart';

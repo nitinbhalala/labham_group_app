@@ -89,20 +89,7 @@ class _BottomBarPageState extends State<BottomBarPage> {
                 size: 3.5.h,
               ),
             ),
-            // BottomNavigationBarItem(
-            //   label: lang?.getTranslatedValue('Cart'),
-            //   icon: Icon(
-            //     Icons.shopping_cart_outlined,
-            //     size: 3.5.h,
-            //   ),
-            // ),
-            // BottomNavigationBarItem(
-            //   label: lang?.getTranslatedValue('Wishlist'),
-            //   icon: Icon(
-            //     Icons.favorite_border_outlined,
-            //     size: 3.5.h,
-            //   ),
-            // ),
+            
             BottomNavigationBarItem(
               label: lang?.getTranslatedValue('Account'),
               icon: Icon(

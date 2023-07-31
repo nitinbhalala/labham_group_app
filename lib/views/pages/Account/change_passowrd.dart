@@ -1,8 +1,8 @@
 // ignore_for_file: use_build_context_synchronously
 import 'package:flutter/material.dart';
 import 'package:flutter_bloc/flutter_bloc.dart';
-import 'package:minimall_store/businessLogic/blocs/changePassowrd/change_passowrd_state.dart';
-import 'package:minimall_store/businessLogic/blocs/changePassowrd/change_password_cubit.dart';
+import 'package:minimall_store/Cubit/changePassowrd/change_passowrd_state.dart';
+import 'package:minimall_store/Cubit/changePassowrd/change_password_cubit.dart';
 import 'package:minimall_store/services/api_services.dart';
 import 'package:minimall_store/views/comman/app_dialogs.dart';
 import 'package:minimall_store/views/comman/loader.dart';

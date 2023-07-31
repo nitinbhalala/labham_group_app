@@ -6,8 +6,8 @@ import 'package:minimall_store/services/api_services.dart';
 import 'package:minimall_store/views/comman/app_button.dart';
 import 'package:sizer/sizer.dart';
 import '../../../Localization/app_localization.dart';
-import '../../../businessLogic/blocs/Create Estimate/create_estimate_cubit.dart';
-import '../../../businessLogic/blocs/Create Estimate/create_estimate_state.dart';
+import '../../../Cubit/Create Estimate/create_estimate_cubit.dart';
+import '../../../Cubit/Create Estimate/create_estimate_state.dart';
 import '../../../constants/app_colors.dart';
 import '../../../constants/app_fonts.dart';
 import '../../../constants/constants.dart';
@@ -45,9 +45,7 @@ class _AddProductPageState extends State<AddProductPage> {
 
   final GlobalKey<FormState> _formKey = GlobalKey<FormState>();
 
-  MeasurementType unitType = MeasurementType.sqft;
 
-  PriceType priceType = PriceType.sqft;
 
   List addProductList = [];
 
@@ -65,7 +63,7 @@ class _AddProductPageState extends State<AddProductPage> {
       //   height: double.parse(heightController.text),
       //   width:double.parse(witdhController.text),
       //   price: double.parse(priceController.text),
-      //   inchUnit: inchUnit,
+      //   inchUnit: inchUnit,  
       //   sqftUnit: sqftUnit,
       //   totalPrice: totalPrice,
       // ));
@@ -79,11 +77,11 @@ class _AddProductPageState extends State<AddProductPage> {
         "total_price": totalPrice
       });
     });
-    print("addProductList :1 ${addProductList}");
+   
   }
 
   //====================== Short Product ====================================
-  List addShortProductList = [];
+   List addShortProductList = [];
   double shortTotalPrice = 0.0;
   double qty = 0.0;
   double shortPrice = 0.0;
@@ -433,7 +431,7 @@ class _AddProductPageState extends State<AddProductPage> {
                                   ),
                                   child: Center(
                                     child: appText(
-                                        title: '₹${productTodo['price'].toStringAsFixed(2)}',
+                                        title: '${AppFonts.priceSymbol}${productTodo['price'].toStringAsFixed(2)}',
                                         color: AppColors.FONT_COLOR),
                                   ),
                                 ),
@@ -452,7 +450,7 @@ class _AddProductPageState extends State<AddProductPage> {
                                   child: Center(
                                     child: appText(
                                         title:
-                                            '${lang?.getTranslatedValue('Total')}: ₹${productTodo['total_price'].toStringAsFixed(2)}',
+                                            '${lang?.getTranslatedValue('Total')}: ${AppFonts.priceSymbol}${productTodo['total_price'].toStringAsFixed(2)}',
                                         color: AppColors.WHITE_COLOR),
                                   ),
                                 ),
@@ -598,7 +596,7 @@ class _AddProductPageState extends State<AddProductPage> {
                                                     'Price:'),
                                               ),
                                               appText(
-                                                  title: '₹${shortProductList['price']
+                                                  title: '${AppFonts.priceSymbol}${shortProductList['price']
                                                       .toStringAsFixed(2)}'),
                                             ],
                                           ),
@@ -620,8 +618,9 @@ class _AddProductPageState extends State<AddProductPage> {
                                     //     color: AppColors.GREY, width: 0.3)
                                   ),
                                   child: Center(
+                                    
                                     child: appText(
-                                        title: '${lang?.getTranslatedValue('Total')}: ₹${shortProductList['total_price']
+                                           title: '${lang?.getTranslatedValue('Total')}: ${AppFonts.priceSymbol}${shortProductList['total_price']
                                             .toStringAsFixed(2)}',
                                         color: AppColors.WHITE_COLOR),
                                   ),
@@ -653,7 +652,7 @@ class _AddProductPageState extends State<AddProductPage> {
                                   appText(
                                     title: lang?.getTranslatedValue('Price:'),
                                   ),
-                                  appText(title:' ₹${ listTotalPrice.toStringAsFixed(2)}'),
+                                  appText(title:' ${AppFonts.priceSymbol}${ listTotalPrice.toStringAsFixed(2)}'),
                                 ],
                               ),
                             ),
@@ -735,6 +734,7 @@ class _AddProductPageState extends State<AddProductPage> {
                                 if (state is LoadedCreateEstimateState) {
                                   return appButton(
                                       onTap: () {
+                                        
                                         if (!state.isLoading) {
                                           context
                                               .read<CreateEstimateCubit>()
@@ -789,10 +789,10 @@ class _AddProductPageState extends State<AddProductPage> {
     sqftUnit = 0.0;
     inchUnit = 0.0;
     totalPrice = 0.0;
-
     price = 0.0;
     height = 0.0;
     width = 0.0;
+
     return SingleChildScrollView(
       child: AlertDialog(
         scrollable: true,
@@ -1362,3 +1362,6 @@ class _AddProductPageState extends State<AddProductPage> {
     );
   }
 }
+
+
+

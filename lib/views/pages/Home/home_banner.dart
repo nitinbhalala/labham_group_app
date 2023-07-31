@@ -7,8 +7,8 @@ import 'package:flutter_bloc/flutter_bloc.dart';
 import 'package:minimall_store/services/api_services.dart';
 import 'package:minimall_store/views/comman/shimmer_loader.dart';
 import 'package:sizer/sizer.dart';
-import '../../../businessLogic/blocs/BannerBloc/banner_state.dart';
-import '../../../businessLogic/blocs/BannerBloc/banner_cubit.dart';
+import '../../../Cubit/Banner/banner_state.dart';
+import '../../../Cubit/Banner/banner_cubit.dart';
 import '../../../constants/app_colors.dart';
 import '../../comman/app_text.dart';
 import '../../comman/loader.dart';
@@ -88,26 +88,6 @@ class _HomeBannerState extends State<HomeBanner> {
       ),
     );
 
-    // CarouselSlider(
-    //     items: List.generate(
-    //         3,
-    //         (index) => ClipRRect(
-    //             borderRadius: BorderRadius.circular(4.w),
-    //             child: Image.asset(AppAssets.BANNER,fit: BoxFit.cover,))),
-    //     options: CarouselOptions(
-    //       height: 25.h,
-    //       viewportFraction: 0.7,
-    //       initialPage: 0,
-    //       enableInfiniteScroll: true,
-    //       reverse: false,
-    //       autoPlay: true,
-    //       autoPlayInterval: const Duration(seconds: 3),
-    //       autoPlayAnimationDuration: const Duration(milliseconds: 800),
-    //       autoPlayCurve: Curves.fastOutSlowIn,
-    //       enlargeCenterPage: true,
-
-    //       // onPageChanged: callbackFunction,
-    //       scrollDirection: Axis.horizontal,
-    //     ));
+   
   }
 }

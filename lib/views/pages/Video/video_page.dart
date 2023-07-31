@@ -3,8 +3,8 @@
 import 'package:appinio_video_player/appinio_video_player.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter_bloc/flutter_bloc.dart';
-import 'package:minimall_store/businessLogic/blocs/VideoList/video_cubit.dart';
-import 'package:minimall_store/businessLogic/blocs/VideoList/video_sate.dart';
+import 'package:minimall_store/Cubit/VideoList/video_cubit.dart';
+import 'package:minimall_store/Cubit/VideoList/video_sate.dart';
 import 'package:minimall_store/services/api_services.dart';
 import 'package:minimall_store/views/comman/loader.dart';
 import 'package:minimall_store/views/comman/no_found.dart';

@@ -94,10 +94,10 @@ class _AboutPageState extends State<AboutPage> {
                   children: <Widget>[
                     Image.asset(
                       AppAssets.LABHAM_LOGO,
-                      scale: 2.h,
+                      scale: 1.5.h,
                     ),
                     SizedBox(
-                      height: 2.h,
+                      height: 1.6.h,
                     ),
                     appText(
                         title: lang?.getTranslatedValue('Labham Group'),

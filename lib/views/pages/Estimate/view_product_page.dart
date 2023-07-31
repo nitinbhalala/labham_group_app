@@ -1,4 +1,4 @@
-// ignore_for_file: unrelated_type_equality_checks
+// ignore_for_file: unrelated_type_equality_checks, must_be_immutable, prefer_typing_uninitialized_variables
 
 import 'package:flutter/material.dart';
 import 'package:minimall_store/constants/app_colors.dart';
@@ -16,12 +16,7 @@ class ViewProductPage extends StatefulWidget {
 }
 
 class _ViewProductPageState extends State<ViewProductPage> {
-  @override
-  void initState() {
-    print("estimateDetail : ${widget.estimateDetail}");
-    super.initState();
-  }
-
+  
   @override
   Widget build(BuildContext context) {
     var lang = AppLocalization.of(context);
@@ -128,7 +123,7 @@ class _ViewProductPageState extends State<ViewProductPage> {
                                                   ),
                                                   appText(
                                                       title: data['height']
-                                                          .toString()),
+                                                          .toStringAsFixed(2)),
                                                 ],
                                               ),
                                             ),
@@ -163,7 +158,7 @@ class _ViewProductPageState extends State<ViewProductPage> {
                                                   ),
                                                   appText(
                                                       title: data['widht']
-                                                          .toString()),
+                                                          .toStringAsFixed(2)),
                                                 ],
                                               ),
                                             ),
@@ -202,7 +197,7 @@ class _ViewProductPageState extends State<ViewProductPage> {
                                                   ),
                                                   appText(
                                                       title: data['inch']
-                                                          .toString()),
+                                                          .toStringAsFixed(2)),
                                                 ],
                                               ),
                                             ),
@@ -237,7 +232,7 @@ class _ViewProductPageState extends State<ViewProductPage> {
                                                   ),
                                                   appText(
                                                       title: data['sqft']
-                                                          .toString()),
+                                                          .toStringAsFixed(2)),
                                                 ],
                                               ),
                                             ),
@@ -262,7 +257,7 @@ class _ViewProductPageState extends State<ViewProductPage> {
                                       ),
                                       child: Center(
                                         child: appText(
-                                            title:'${lang?.getTranslatedValue('Price:')} ${data['price'].toString()}',
+                                            title:'${lang?.getTranslatedValue('Price:')} ${data['price'].toStringAsFixed(2)}',
                                             color: AppColors.FONT_COLOR
                                             ), 
                                       ),
@@ -283,7 +278,7 @@ class _ViewProductPageState extends State<ViewProductPage> {
                                       child: Center(
                                         child: appText(
                                             title:
-                                                '${lang?.getTranslatedValue('Total')}: ₹${data['total_price'].toString()}',
+                                                '${lang?.getTranslatedValue('Total')}: ${AppFonts.priceSymbol}${data['total_price'].toStringAsFixed(2)}',
                                             color: AppColors.WHITE_COLOR),
                                       ),
                                     ),
@@ -359,7 +354,7 @@ class _ViewProductPageState extends State<ViewProductPage> {
                                                   ),
                                                   appText(
                                                       title: data['qty']
-                                                          .toString()),
+                                                          .toStringAsFixed(2)),
                                                 ],
                                               ),
                                             ),
@@ -394,7 +389,7 @@ class _ViewProductPageState extends State<ViewProductPage> {
                                                   ),
                                                   appText(
                                                       title: data['price']
-                                                          .toString()),
+                                                          .toStringAsFixed(2)),
                                                 ],
                                               ),
                                             ),
@@ -418,7 +413,7 @@ class _ViewProductPageState extends State<ViewProductPage> {
                                       child: Center(
                                         child: appText(
                                             title:
-                                                '${lang?.getTranslatedValue('Total')}: ₹${data['total_price'].toString()}',
+                                                '${lang?.getTranslatedValue('Total')}: ${AppFonts.priceSymbol}${data['total_price'].toStringAsFixed(2)}',
                                             color: AppColors.WHITE_COLOR),
                                       ),
                                     ),
@@ -447,8 +442,8 @@ class _ViewProductPageState extends State<ViewProductPage> {
                             title: lang?.getTranslatedValue('Price:'),
                           ),
                           appText(
-                              title: ' ₹${widget.estimateDetail['total_list_price']
-                                  .toString()}'),
+                              title: ' ${AppFonts.priceSymbol}${widget.estimateDetail['total_list_price']
+                                  .toStringAsFixed(2)}'),
                         ],
                       ),
                     ),
@@ -456,8 +451,8 @@ class _ViewProductPageState extends State<ViewProductPage> {
                   SizedBox(
                     height: 1.h,
                   ),
-                  widget.estimateDetail['total_list_ince'].toString() != '0' &&
-                          widget.estimateDetail['total_sqft'].toString() != '0'
+                  widget.estimateDetail['total_list_ince']!= null &&
+                          widget.estimateDetail['total_sqft']!= null
                       ? Column(
                           children: [
                             Container(
@@ -481,7 +476,7 @@ class _ViewProductPageState extends State<ViewProductPage> {
                                     appText(
                                         title: widget
                                             .estimateDetail['total_list_ince']
-                                            .toString()),
+                                            .toStringAsFixed(2)),
                                   ],
                                 ),
                               ),
@@ -510,7 +505,7 @@ class _ViewProductPageState extends State<ViewProductPage> {
                                     appText(
                                         title: widget
                                             .estimateDetail['total_sqft']
-                                            .toString()),
+                                            .toStringAsFixed(2)),
                                   ],
                                 ),
                               ),
